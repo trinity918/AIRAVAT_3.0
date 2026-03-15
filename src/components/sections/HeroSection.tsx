@@ -18,7 +18,7 @@ export function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-full flex flex-col items-center justify-center text-center px-4 overflow-hidden">
+      <div className="relative z-10 w-full max-w-full flex flex-col items-center justify-center text-center px-4 overflow-hidden md:pt-32">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
