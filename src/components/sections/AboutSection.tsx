@@ -25,7 +25,7 @@ const characters = [
   {
     name: "chewbacca",
     src: "/lego_chars/chewbacca.png",
-    pos: "top-[20%] left-[1%] md:left-[-2%]",
+    pos: "top-[20%] left-[2%] md:left-[-2%]",
     rotate: 25,
     delay: 0.3,
     align: "left",
@@ -33,7 +33,7 @@ const characters = [
   {
     name: "yoda",
     src: "/lego_chars/yoda.png",
-    pos: "top-[40%] right-[1%] md:right-[-2%]",
+    pos: "top-[40%] right-[2%] md:right-[-2%]",
     rotate: -25,
     delay: 0.4,
     align: "right",
@@ -41,7 +41,7 @@ const characters = [
   {
     name: "boba_fett",
     src: "/lego_chars/boba_fett.png",
-    pos: "top-[60%] left-[1%] md:left-[2%]",
+    pos: "top-[60%] left-[2%] md:left-[2%]",
     rotate: 20,
     delay: 0.5,
     align: "left",
@@ -49,7 +49,7 @@ const characters = [
   {
     name: "harry_potter",
     src: "/lego_chars/harry_potter.png",
-    pos: "top-[75%] right-[1%] md:right-[2%]",
+    pos: "top-[75%] right-[2%] md:right-[2%]",
     rotate: -20,
     delay: 0.6,
     align: "right",
@@ -193,7 +193,7 @@ export function AboutSection() {
           <motion.div
             key={char.name}
             className={cn(
-              "absolute z-20 w-16 h-16 sm:w-24 sm:h-24 md:w-48 md:h-48 drop-shadow-2xl",
+              "absolute z-20 w-12 h-12 sm:w-20 sm:h-20 md:w-48 md:h-48 drop-shadow-2xl",
               char.pos,
             )}
             initial={{

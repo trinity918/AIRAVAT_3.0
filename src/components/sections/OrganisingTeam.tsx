@@ -160,7 +160,7 @@ export function OrganisingTeamSection() {
           <motion.div
             key={char.name}
             className={cn(
-              "absolute z-20 w-16 h-16 sm:w-24 sm:h-24 md:w-32 lg:w-48 md:h-32 lg:h-48 drop-shadow-2xl",
+              "absolute z-20 w-12 h-12 sm:w-20 sm:h-20 md:w-32 lg:w-48 md:h-32 lg:h-48 drop-shadow-2xl",
               char.pos,
             )}
             initial={{
