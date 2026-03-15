@@ -9,7 +9,7 @@ const characters = [
   {
     name: "yoda",
     src: "/lego_chars/yoda.png",
-    pos: "top-[2%] left-[2%] md:top-[5%] md:left-[5%]",
+    pos: "top-[5%] left-[-2%] md:left-[5%]",
     rotate: 15,
     delay: 0.1,
     align: "top-left",
@@ -17,7 +17,7 @@ const characters = [
   {
     name: "bruce_wayne",
     src: "/lego_chars/bruce_wayne.png",
-    pos: "top-[40%] right-[2%] md:right-[-2%]",
+    pos: "top-[40%] right-[-5%] md:right-[-2%]",
     rotate: -25,
     delay: 0.4,
     align: "right",
@@ -25,7 +25,7 @@ const characters = [
   {
     name: "harry_potter",
     src: "/lego_chars/harry_potter.png",
-    pos: "bottom-[2%] left-[10%] md:bottom-[-5%]",
+    pos: "bottom-[-5%] left-[10%]",
     rotate: 10,
     delay: 0.7,
     align: "bottom-left",
@@ -33,7 +33,7 @@ const characters = [
   {
     name: "c3po",
     src: "/lego_chars/c3po.png",
-    pos: "bottom-[2%] right-[30%] md:bottom-[-10%]",
+    pos: "bottom-[-10%] right-[30%]",
     rotate: -5,
     delay: 1.0,
     align: "bottom",
@@ -171,15 +171,11 @@ export function ContactSection() {
             Get In Touch
           </div>
           <h2 className="text-4xl sm:text-5xl md:text-7xl font-display font-black uppercase tracking-wider mb-4 leading-none">
-            <span
-              className="text-lego-yellow inline-block mb-1 text-lego-heading shadow-layer-green"
-            >
+            <span className="text-lego-yellow inline-block mb-1 text-lego-heading shadow-layer-green">
               Contact
             </span>
             <br className="md:hidden" />
-            <span
-              className="text-white inline-block mt-1 md:ml-4 text-lego-heading shadow-layer-blue"
-            >
+            <span className="text-white inline-block mt-1 md:ml-4 text-lego-heading shadow-layer-blue">
               Details
             </span>
           </h2>
@@ -245,15 +241,11 @@ export function ContactSection() {
           className="text-center mb-8"
         >
           <h3 className="text-3xl sm:text-4xl md:text-6xl font-display font-black uppercase tracking-wider mb-6 leading-none">
-            <span
-              className="text-white inline-block mb-1 text-lego-heading shadow-layer-red"
-            >
+            <span className="text-white inline-block mb-1 text-lego-heading shadow-layer-red">
               Honorable
             </span>
             <br className="sm:hidden" />
-            <span
-              className="text-white inline-block mt-1 sm:ml-4 text-lego-heading shadow-layer-blue"
-            >
+            <span className="text-white inline-block mt-1 sm:ml-4 text-lego-heading shadow-layer-blue">
               Mentions
             </span>
           </h3>
