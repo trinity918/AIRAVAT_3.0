@@ -6,11 +6,13 @@ import { useRef } from "react";
 
 const PARTICLES = Array.from({ length: 10 }).map((_, i) => ({
   id: i,
-  yAnim: [0, (i * 13) % 40 + 20, 0],
-  xAnim: [0, (i * 17) % 60 - 30, 0],
+  yAnim: [0, ((i * 13) % 40) + 20, 0],
+  xAnim: [0, ((i * 17) % 60) - 30, 0],
   rotateAnim: [0, (i * 23) % 360, 0],
   duration: 6 + ((i * 31) % 6),
-  bgClass: ["bg-[#16a34a]", "bg-[#22c55e]", "bg-[#4ade80]", "bg-[#86efac]"][i % 4],
+  bgClass: ["bg-[#16a34a]", "bg-[#22c55e]", "bg-[#4ade80]", "bg-[#86efac]"][
+    i % 4
+  ],
   left: `${5 + ((i * 37) % 90)}%`,
   top: `${-20 + ((i * 41) % 40)}%`,
   scale: 0.5 + ((i * 43) % 10) * 0.1,
@@ -97,7 +99,7 @@ export function CityWorld() {
             }}
             className={cn(
               "absolute w-4 h-6 rounded-b-full rounded-tr-full shadow-lg z-20 will-change-transform",
-              particle.bgClass
+              particle.bgClass,
             )}
             style={{
               left: particle.left,
@@ -121,10 +123,12 @@ export function CityWorld() {
             Lego City
           </div>
 
-          <h2 className="text-5xl md:text-7xl font-display font-black text-white mb-6 uppercase tracking-wider leading-none text-lego-heading shadow-layer-zinc max-w-full whitespace-normal break-normal wrap-break-word">
+          <h2 className="text-5xl md:text-7xl font-display font-black text-white mb-6 uppercase tracking-wider leading-none text-lego-heading shadow-layer-zinc">
             Tech for
             <br />
-            <span className="text-white text-lego-heading shadow-layer-green mt-1 inline-block max-w-full whitespace-normal break-normal wrap-break-word">Sustainability</span>
+            <span className="text-white text-lego-heading shadow-layer-green mt-1 inline-block">
+              Sustainability
+            </span>
           </h2>
 
           <p className="text-xl text-slate-300 font-light leading-relaxed max-w-lg border-l-4 border-neon-green pl-6">

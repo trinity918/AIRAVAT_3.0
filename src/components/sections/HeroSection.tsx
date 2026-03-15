@@ -66,7 +66,7 @@ export function HeroSection() {
             type: "spring",
             stiffness: 200,
           }}
-          className="flex flex-wrap gap-4 justify-center md:mt-8"
+          className="flex flex-wrap gap-4 justify-center md:mt-10"
         >
           <a
             href="https://unstop.com/hackathons/airavat-30-24-hour-national-ai-hackathon-sardar-patel-institute-of-technology-spit-mumbai-1658777"

@@ -238,12 +238,12 @@ export function OrganisingTeamSection() {
               <div className="inline-block px-4 py-1.5 mb-4 md:mb-6 rounded-full border border-lego-red bg-lego-red/10 text-white font-mono text-xs md:text-sm uppercase tracking-wider backdrop-blur-sm shadow-[4px_4px_0_rgba(227,0,11,1)] font-bold">
                 The Architects
               </div>
-              <h2 className="text-4xl sm:text-5xl md:text-6xl font-display font-black uppercase tracking-wider mb-4 leading-[1.05] max-w-full overflow-hidden w-full whitespace-normal break-normal wrap-break-word">
-                <span className="text-white inline-block mb-1 text-lego-heading shadow-layer-red max-w-full whitespace-normal break-normal wrap-break-word">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-display font-black uppercase tracking-wider mb-4 leading-[1.05] max-w-full overflow-hidden w-full whitespace-normal wrap-break-word">
+                <span className="text-white inline-block mb-1 text-lego-heading shadow-layer-red max-w-full wrap-break-word">
                   Organising
                 </span>
                 <br className="md:hidden" />
-                <span className="text-lego-yellow inline-block mt-1 md:ml-4 text-lego-heading shadow-layer-blue max-w-full whitespace-normal break-normal wrap-break-word">
+                <span className="text-lego-yellow inline-block mt-1 md:ml-4 text-lego-heading shadow-layer-blue max-w-full wrap-break-word">
                   Team
                 </span>
               </h2>
