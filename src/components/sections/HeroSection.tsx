@@ -66,10 +66,10 @@ export function HeroSection() {
             type: "spring",
             stiffness: 200,
           }}
-          className="flex flex-wrap gap-4 justify-center"
+          className="flex flex-wrap gap-4 justify-center md:mt-8"
         >
           <a
-            href="https://unstop.com/p/airavat-30-national-24-hour-hackathon-sardar-patel-institute-of-technology-spit-mumbai-1658777?utm_campaign=site-emails&utm_medium=d2c-automated&utm_source=congratulations-your-listing-for-airavat-30-24-hour-national-ai-hackathon-is-complete"
+            href="https://unstop.com/hackathons/airavat-30-24-hour-national-ai-hackathon-sardar-patel-institute-of-technology-spit-mumbai-1658777"
             target="_blank"
             rel="noopener noreferrer"
             className="px-8 py-4 bg-lego-red text-white font-display uppercase tracking-widest text-lg md:text-xl rounded-md hover:bg-red-600 transition-colors shadow-[0_4px_0_#990000,0_4px_20px_rgba(227,0,11,0.5)] active:translate-y-1 active:shadow-[0_0_0_#990000,0_0_10px_rgba(227,0,11,0.5)] flex items-center gap-2"

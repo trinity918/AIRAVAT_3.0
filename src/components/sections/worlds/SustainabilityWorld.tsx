@@ -116,14 +116,14 @@ export function SustainabilityWorld() {
             Lego Star Wars
           </div>
 
-          <h2 className="text-4xl sm:text-5xl md:text-7xl font-display font-black uppercase tracking-wider mb-4 md:mb-6 leading-none max-w-full whitespace-normal wrap-break-word">
+          <h2 className="text-5xl md:text-8xl font-display font-black mb-8 tracking-tighter leading-none max-w-full whitespace-normal break-normal wrap-break-word">
             <span
-              className="text-white block mb-1 max-w-full wrap-break-word text-lego-heading shadow-layer-blue"
+              className="text-white block mb-1 max-w-full whitespace-normal break-normal wrap-break-word text-lego-heading shadow-layer-blue"
             >
               AI in
             </span>
             <span
-              className="text-white block mt-1 max-w-full wrap-break-word text-lego-heading shadow-layer-green"
+              className="text-white block mt-1 max-w-full whitespace-normal break-normal wrap-break-word text-lego-heading shadow-layer-green"
             >
               Sustainability
             </span>
