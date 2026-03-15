@@ -18,7 +18,7 @@ export function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-full flex flex-col items-center justify-center text-center px-4 overflow-hidden md:pt-32">
+      <div className="relative z-10 w-full max-w-full flex flex-col items-center justify-center text-center px-4 overflow-hidden md:pt-32 md:pb-32">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -66,7 +66,7 @@ export function HeroSection() {
             type: "spring",
             stiffness: 200,
           }}
-          className="flex flex-wrap gap-4 justify-center md:mt-10"
+          className="flex flex-wrap gap-4 justify-center relative z-20 md:-mt-2"
         >
           <a
             href="https://unstop.com/hackathons/airavat-30-24-hour-national-ai-hackathon-sardar-patel-institute-of-technology-spit-mumbai-1658777"
