@@ -4,6 +4,19 @@ import { cn } from "@/lib/utils";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
+const PARTICLES = Array.from({ length: 10 }).map((_, i) => ({
+  id: i,
+  yAnim: [0, (i * 13) % 40 + 20, 0],
+  xAnim: [0, (i * 17) % 60 - 30, 0],
+  rotateAnim: [0, (i * 23) % 360, 0],
+  duration: 6 + ((i * 31) % 6),
+  bgClass: ["bg-[#16a34a]", "bg-[#22c55e]", "bg-[#4ade80]", "bg-[#86efac]"][i % 4],
+  left: `${5 + ((i * 37) % 90)}%`,
+  top: `${-20 + ((i * 41) % 40)}%`,
+  scale: 0.5 + ((i * 43) % 10) * 0.1,
+  opacity: 0.3 + ((i * 47) % 5) * 0.1,
+}));
+
 export function CityWorld() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -69,30 +82,28 @@ export function CityWorld() {
         </motion.div>
 
         {/* Floating Leaves/Bricks */}
-        {Array.from({ length: 20 }).map((_, i) => (
+        {PARTICLES.map((particle) => (
           <motion.div
-            key={i}
+            key={particle.id}
             animate={{
-              y: [0, Math.random() * 40 + 20, 0], // falling/floating down
-              x: [0, Math.random() * 60 - 30, 0],
-              rotate: [0, Math.random() * 360, 0],
+              y: particle.yAnim, // falling/floating down
+              x: particle.xAnim,
+              rotate: particle.rotateAnim,
             }}
             transition={{
-              duration: 5 + Math.random() * 5,
+              duration: particle.duration,
               repeat: Infinity,
               ease: "easeInOut",
             }}
             className={cn(
-              "absolute w-4 h-6 rounded-b-full rounded-tr-full shadow-lg z-20",
-              ["bg-green-400", "bg-emerald-300", "bg-lime-400"][
-                Math.floor(Math.random() * 3)
-              ],
+              "absolute w-4 h-6 rounded-b-full rounded-tr-full shadow-lg z-20 will-change-transform",
+              particle.bgClass
             )}
             style={{
-              left: `${10 + Math.random() * 80}%`,
-              top: `${Math.random() * 80}%`,
-              scale: 0.5 + Math.random(),
-              opacity: 0.7,
+              left: particle.left,
+              top: particle.top,
+              scale: particle.scale,
+              opacity: particle.opacity,
             }}
           />
         ))}

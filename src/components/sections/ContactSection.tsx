@@ -275,6 +275,7 @@ export function ContactSection() {
                 src="/patil_new.png"
                 alt="Shreesh Patil"
                 fill
+                sizes="(max-width: 768px) 100vw, 400px"
                 className="object-cover"
               />
             </div>

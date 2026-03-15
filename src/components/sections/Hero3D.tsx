@@ -1,7 +1,6 @@
 "use client";
 
 import { Box, Edges, Float } from "@react-three/drei";
-import * as THREE from "three";
 
 // Colors corresponding to our CSS variables
 const legoColors = [

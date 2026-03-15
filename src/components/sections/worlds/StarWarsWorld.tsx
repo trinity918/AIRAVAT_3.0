@@ -4,6 +4,29 @@ import { cn } from "@/lib/utils";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
+const STARS = Array.from({ length: 20 }).map((_, i) => ({
+  id: i,
+  left: `${(i * 13) % 100}%`,
+  top: `${(i * 17) % 100}%`,
+  width: `${2 + ((i * 23) % 4)}px`,
+  height: `${2 + ((i * 29) % 4)}px`,
+  opacity: 0.3 + ((i * 31) % 7) * 0.1,
+  animation: `twinkle ${(i * 37) % 3 + 2}s infinite alternate`,
+}));
+
+const PARTICLES = Array.from({ length: 10 }).map((_, i) => ({
+  id: i,
+  yAnim: [0, -((i * 43) % 50) - 20, 0],
+  xAnim: [0, ((i * 47) % 50) - 25, 0],
+  rotateAnim: [0, (i * 53) % 360, 0],
+  duration: 6 + ((i * 59) % 6),
+  bgClass: ["bg-[#e2e8f0]", "bg-[#94a3b8]", "bg-[#cbd5e1]"][i % 3],
+  left: `${5 + ((i * 61) % 90)}%`,
+  top: `${5 + ((i * 67) % 90)}%`,
+  scale: 0.5 + ((i * 71) % 6) * 0.1,
+  opacity: 0.4 + ((i * 73) % 5) * 0.1,
+}));
+
 export function StarWarsWorld() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -25,17 +48,17 @@ export function StarWarsWorld() {
         className="absolute inset-0 z-0 bg-[linear-gradient(to_bottom,#000000,#0a0a2a)] opacity-100"
       >
         {/* Stars */}
-        {Array.from({ length: 100 }).map((_, i) => (
+        {STARS.map((star) => (
           <div
-            key={i}
-            className="absolute rounded-full bg-white"
+            key={star.id}
+            className="absolute rounded-full bg-white will-change-transform"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              width: `${Math.random() * 3}px`,
-              height: `${Math.random() * 3}px`,
-              opacity: Math.random() * 0.8 + 0.2,
-              animation: `twinkle ${Math.random() * 3 + 2}s infinite alternate`,
+              left: star.left,
+              top: star.top,
+              width: star.width,
+              height: star.height,
+              opacity: star.opacity,
+              animation: star.animation,
             }}
           />
         ))}
@@ -95,29 +118,27 @@ export function StarWarsWorld() {
         </motion.div>
 
         {/* Floating Space Lego Particles */}
-        {Array.from({ length: 15 }).map((_, i) => (
+        {PARTICLES.map((particle) => (
           <motion.div
-            key={i}
+            key={particle.id}
             animate={{
-              y: [0, Math.random() * -50 - 20, 0],
-              x: [0, Math.random() * 50 - 25, 0],
-              rotate: [0, Math.random() * 360, 0],
+              y: particle.yAnim,
+              x: particle.xAnim,
+              rotate: particle.rotateAnim,
             }}
             transition={{
-              duration: 6 + Math.random() * 6,
+              duration: particle.duration,
               repeat: Infinity,
               ease: "linear",
             }}
             className={cn(
-              "absolute w-6 h-6 rounded-sm border opacity-80 shadow-[0_0_15px_rgba(255,255,255,0.2)] z-20",
-              ["bg-slate-700", "bg-slate-500", "bg-slate-800"][
-                Math.floor(Math.random() * 3)
-              ],
+              "absolute w-6 h-6 rounded-sm border opacity-80 shadow-[0_0_15px_rgba(255,255,255,0.2)] z-20 will-change-transform",
+              particle.bgClass
             )}
             style={{
-              left: `${10 + Math.random() * 80}%`,
-              top: `${10 + Math.random() * 80}%`,
-              scale: 0.3 + Math.random() * 0.7,
+              left: particle.left,
+              top: particle.top,
+              scale: particle.scale,
             }}
           >
             <div className="absolute inset-[2px] rounded-sm border border-white/10" />
