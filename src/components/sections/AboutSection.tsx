@@ -79,6 +79,14 @@ const characters = [
     align: "bottom",
   },
   {
+    name: "c3po",
+    src: "/lego_chars/c3po.png",
+    pos: "bottom-[-10%] left-[30%]",
+    rotate: 5,
+    delay: 0.9,
+    align: "bottom",
+  },
+  {
     name: "r2d2",
     src: "/lego_chars/r2d2.png",
     pos: "bottom-[-10%] right-[30%]",
@@ -86,7 +94,23 @@ const characters = [
     delay: 1.0,
     align: "bottom",
   },
-];
+].map((char, i) => ({
+  ...char,
+  animDuration: 3 + ((i * 17) % 2),
+}));
+
+// Pre-generated random values to prevent hydration mismatch and reduce re-renders
+const PARTICLES = Array.from({ length: 12 }).map((_, i) => ({
+  id: i,
+  left: `${10 + ((i * 17) % 80)}%`,
+  top: `${10 + ((i * 23) % 80)}%`,
+  delay: ((i * 13) % 5) * 0.1,
+  yRange: [(i * 31) % 200, -((i * 37) % 200)],
+  yAnimParams: [0, -((i * 41) % 40) - 10, 0],
+  rotateAnimParams: [0, (i * 47) % 360, 0],
+  duration: 4 + ((i * 53) % 4),
+  bgClass: ["bg-lego-red", "bg-lego-yellow", "bg-neon-blue", "bg-neon-green"][i % 4],
+}));
 
 export function AboutSection() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -134,42 +158,33 @@ export function AboutSection() {
       </motion.div>
 
       {/* Floating Particles */}
-      {Array.from({ length: 20 }).map((_, i) => (
+      {PARTICLES.map((particle) => (
         <motion.div
-          key={i}
+          key={particle.id}
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: Math.random() * 0.5, duration: 1 }}
-          className="absolute z-0 pointer-events-none"
+          transition={{ delay: particle.delay, duration: 1 }}
+          className="absolute z-0 pointer-events-none will-change-transform"
           style={{
-            left: `${10 + Math.random() * 80}%`,
-            top: `${10 + Math.random() * 80}%`,
-            y: useTransform(
-              scrollYProgress,
-              [0, 1],
-              [Math.random() * 200, Math.random() * -200],
-            ),
+            left: particle.left,
+            top: particle.top,
+            y: useTransform(scrollYProgress, [0, 1], particle.yRange),
           }}
         >
           <motion.div
             animate={{
-              y: [0, Math.random() * -40 - 10, 0],
-              rotate: [0, Math.random() * 360, 0],
+              y: particle.yAnimParams,
+              rotate: particle.rotateAnimParams,
             }}
             transition={{
-              duration: 4 + Math.random() * 4,
+              duration: particle.duration,
               repeat: Infinity,
               ease: "easeInOut",
             }}
             className={cn(
-              "w-8 h-8 rounded-sm shadow-xl border-t border-white/20",
-              [
-                "bg-lego-red",
-                "bg-lego-yellow",
-                "bg-neon-blue",
-                "bg-neon-green",
-              ][Math.floor(Math.random() * 4)],
+              "w-8 h-8 rounded-sm shadow-xl border-t border-white/20 will-change-transform",
+              particle.bgClass
             )}
           >
             <div className="flex items-center justify-center h-full">
@@ -208,7 +223,7 @@ export function AboutSection() {
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{
-                duration: 3 + Math.random() * 2,
+                duration: char.animDuration,
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
@@ -238,17 +253,15 @@ export function AboutSection() {
           <div className="inline-block px-4 py-1.5 mb-4 md:mb-6 rounded-full border border-lego-yellow bg-lego-yellow/10 text-lego-yellow font-mono text-xs md:text-sm uppercase tracking-wider backdrop-blur-sm shadow-[4px_4px_0_rgba(246,209,0,1)] font-bold">
             Join the Build
           </div>
-          <h2 className="text-4xl sm:text-5xl md:text-7xl font-display font-black uppercase tracking-tighter mb-6 leading-none">
+          <h2 className="text-4xl sm:text-5xl md:text-7xl font-display font-black uppercase tracking-wider mb-6 leading-none">
             <span
-              className="text-white inline-block mb-1"
-              style={{ textShadow: "4px 4px 0px #000, 8px 8px 0px #0D47A1" }}
+              className="text-white inline-block mb-1 text-lego-heading shadow-layer-blue"
             >
               About
             </span>
             <br className="md:hidden" />
             <span
-              className="text-neon-pink inline-block mt-1 md:ml-4"
-              style={{ textShadow: "4px 4px 0px #000, 8px 8px 0px #00f3ff" }}
+              className="text-white inline-block mt-1 md:ml-4 text-lego-heading shadow-layer-pink"
             >
               AIRAVAT 3.0
             </span>

@@ -5,6 +5,20 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
 
+// Pre-generated random values to prevent hydration mismatch and reduce re-renders
+const PARTICLES = Array.from({ length: 10 }).map((_, i) => ({
+  id: i,
+  left: `${10 + ((i * 17) % 80)}%`,
+  top: `${10 + ((i * 23) % 80)}%`,
+  delay: ((i * 13) % 5) * 0.1,
+  yRange: [(i * 31) % 100, -((i * 37) % 100)],
+  yAnimParams: [0, -((i * 41) % 30) - 10, 0],
+  rotateAnimParams: [0, (i * 47) % 360, 0],
+  duration: 4 + ((i * 53) % 4),
+  bgClass: ["bg-slate-800", "bg-slate-700", "bg-slate-900", "bg-zinc-600"][i % 4],
+  roundedClass: i % 2 === 0 ? "rounded-sm" : "rounded-full"
+}));
+
 export function BatmanWorld() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -52,40 +66,34 @@ export function BatmanWorld() {
         </motion.div>
 
         {/* Layer 3: Floating Mechanical Lego Bricks */}
-        {Array.from({ length: 15 }).map((_, i) => (
+        {PARTICLES.map((particle) => (
           <motion.div
-            key={i}
+            key={particle.id}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: Math.random() * 0.5, duration: 1 }}
-            className="absolute z-0"
+            transition={{ delay: particle.delay, duration: 1 }}
+            className="absolute z-0 will-change-transform"
             style={{
-              left: `${10 + Math.random() * 80}%`,
-              top: `${10 + Math.random() * 80}%`,
-              y: useTransform(
-                scrollYProgress,
-                [0, 1],
-                [Math.random() * 100, Math.random() * -100],
-              ),
+              left: particle.left,
+              top: particle.top,
+              y: useTransform(scrollYProgress, [0, 1], particle.yRange),
             }}
           >
             <motion.div
               animate={{
-                y: [0, Math.random() * -30 - 10, 0],
-                rotate: [0, Math.random() * 360, 0],
+                y: particle.yAnimParams,
+                rotate: particle.rotateAnimParams,
               }}
               transition={{
-                duration: 4 + Math.random() * 4,
+                duration: particle.duration,
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
               className={cn(
-                "w-6 h-6 border-t border-white/30 shadow-xl",
-                ["bg-slate-800", "bg-slate-700", "bg-slate-900", "bg-zinc-600"][
-                  Math.floor(Math.random() * 4)
-                ],
-                Math.random() > 0.5 ? "rounded-sm" : "rounded-full", // mechanical parts
+                "w-6 h-6 border-t border-white/30 shadow-xl will-change-transform",
+                particle.bgClass,
+                particle.roundedClass
               )}
             >
               {/* inner stud */}
@@ -108,16 +116,14 @@ export function BatmanWorld() {
             Lego Batman
           </div>
 
-          <h2 className="text-4xl sm:text-5xl md:text-7xl font-display font-black uppercase tracking-tighter mb-4 md:mb-6 leading-none max-w-full whitespace-normal wrap-break-word">
+          <h2 className="text-4xl sm:text-5xl md:text-7xl font-display font-black uppercase tracking-wider mb-4 md:mb-6 leading-none max-w-full whitespace-normal wrap-break-word">
             <span
-              className="text-black block mb-1 max-w-full wrap-break-word"
-              style={{ textShadow: "3px 3px 0px #fff, 6px 6px 0px #555" }}
+              className="text-white block mb-1 max-w-full wrap-break-word text-lego-heading shadow-layer-red"
             >
               AI in
             </span>
             <span
-              className="text-slate-900 block mt-1 max-w-full wrap-break-word"
-              style={{ textShadow: "3px 3px 0px #fff, 6px 6px 0px #333" }}
+              className="text-lego-yellow block mt-1 max-w-full wrap-break-word text-lego-heading shadow-layer-blue"
             >
               Healthcare
             </span>

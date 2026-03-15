@@ -58,23 +58,26 @@ export function LegoBrick({
   );
 }
 
-export function FloatingBricks() {
-  const bricks = Array.from({ length: 120 }).map((_, i) => ({
+const BRICKS = Array.from({ length: 60 }).map((_, i) => {
+  const posRange = (i * 17) % 60 - 30;
+  const posRange2 = (i * 23) % 40 - 20;
+  const posRange3 = (i * 31) % 20 - 10;
+  
+  const rot1 = ((i * 37) % 100) / 100 * Math.PI;
+  const rot2 = ((i * 41) % 100) / 100 * Math.PI;
+  const rot3 = ((i * 43) % 100) / 100 * Math.PI;
+
+  return {
     id: i,
-    position: [
-      (Math.random() - 0.5) * 60,
-      (Math.random() - 0.5) * 40,
-      (Math.random() - 0.5) * 20 - 10,
-    ],
-    rotation: [
-      Math.random() * Math.PI,
-      Math.random() * Math.PI,
-      Math.random() * Math.PI,
-    ],
-    color: legoColors[Math.floor(Math.random() * legoColors.length)],
-    scale: 0.5 + Math.random() * 1.5,
-    floatingRange: [-(Math.random() * 0.5), Math.random() * 0.5],
-  }));
+    position: [posRange, posRange2, posRange3],
+    rotation: [rot1, rot2, rot3],
+    color: legoColors[i % legoColors.length],
+    scale: 0.5 + (((i * 47) % 100) / 100) * 1.5,
+    floatingRange: [-((i * 53) % 50) / 100, ((i * 59) % 50) / 100],
+  };
+});
+
+export function FloatingBricks() {
 
   return (
     <>
@@ -83,7 +86,7 @@ export function FloatingBricks() {
       <pointLight position={[-10, -10, -5]} intensity={0.5} color="#ff00ea" />
       <pointLight position={[10, -10, 5]} intensity={0.5} color="#00f3ff" />
 
-      {bricks.map((brick) => (
+      {BRICKS.map((brick) => (
         <LegoBrick key={brick.id} {...brick} />
       ))}
     </>

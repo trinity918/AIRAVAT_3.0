@@ -110,10 +110,10 @@ export function CityWorld() {
             Lego City
           </div>
 
-          <h2 className="text-5xl md:text-7xl font-display font-bold text-white mb-6 uppercase tracking-wider leading-none">
+          <h2 className="text-5xl md:text-7xl font-display font-black text-white mb-6 uppercase tracking-wider leading-none text-lego-heading shadow-layer-zinc">
             Tech for
             <br />
-            <span className="text-neon-green text-neon">Sustainability</span>
+            <span className="text-white text-lego-heading shadow-layer-green mt-1 inline-block">Sustainability</span>
           </h2>
 
           <p className="text-xl text-slate-300 font-light leading-relaxed max-w-lg border-l-4 border-neon-green pl-6">

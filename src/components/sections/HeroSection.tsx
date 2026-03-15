@@ -29,17 +29,15 @@ export function HeroSection() {
             IEEE CS SPIT Presents
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-8xl font-display font-black uppercase tracking-tighter mb-4 leading-none">
+          <h1 className="text-4xl sm:text-5xl md:text-8xl font-display font-black uppercase tracking-wider mb-4 leading-none">
             <span
-              className="text-lego-yellow inline-block mb-1"
-              style={{ textShadow: "4px 4px 0px #000, 8px 8px 0px #E3000B" }}
+              className="text-lego-yellow inline-block mb-1 text-lego-heading shadow-layer-red"
             >
               AIRAVAT
             </span>
             <br />
             <span
-              className="text-white inline-block mt-1"
-              style={{ textShadow: "4px 4px 0px #000, 8px 8px 0px #0085C7" }}
+              className="text-white inline-block mt-1 text-lego-heading shadow-layer-blue"
             >
               3.0
             </span>

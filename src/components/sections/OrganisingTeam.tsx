@@ -63,7 +63,22 @@ export function OrganisingTeamSection() {
       delay: 0.6,
       align: "bottom-right",
     },
-  ];
+  ].map((char, i) => ({
+    ...char,
+    animDuration: 3 + ((i * 17) % 2),
+  }));
+
+  const PARTICLES = Array.from({ length: 12 }).map((_, i) => ({
+    id: i,
+    left: `${5 + ((i * 17) % 90)}%`,
+    top: `${5 + ((i * 23) % 90)}%`,
+    delay: ((i * 13) % 5) * 0.1,
+    yRange: [(i * 31) % 150, -((i * 37) % 150)],
+    yAnimParams: [0, -((i * 41) % 40) - 10, 0],
+    rotateAnimParams: [0, (i * 47) % 360, 0],
+    duration: 4 + ((i * 53) % 4),
+    bgClass: ["bg-[#E3000B]", "bg-[#F6D100]", "bg-[#0085C7]"][i % 3],
+  }));
 
   const getInitialOffset = (align: string) => {
     if (align.includes("left"))
@@ -101,39 +116,33 @@ export function OrganisingTeamSection() {
       </motion.div>
 
       {/* Floating Particles */}
-      {Array.from({ length: 15 }).map((_, i) => (
+      {PARTICLES.map((particle) => (
         <motion.div
-          key={i}
+          key={particle.id}
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: Math.random() * 0.5, duration: 1 }}
-          className="absolute z-0 pointer-events-none"
+          transition={{ delay: particle.delay, duration: 1 }}
+          className="absolute z-0 pointer-events-none will-change-transform"
           style={{
-            left: `${5 + Math.random() * 90}%`,
-            top: `${5 + Math.random() * 90}%`,
-            y: useTransform(
-              scrollYProgress,
-              [0, 1],
-              [Math.random() * 150, Math.random() * -150],
-            ),
+            left: particle.left,
+            top: particle.top,
+            y: useTransform(scrollYProgress, [0, 1], particle.yRange),
           }}
         >
           <motion.div
             animate={{
-              y: [0, Math.random() * -30 - 10, 0],
-              rotate: [0, Math.random() * 360, 0],
+              y: particle.yAnimParams,
+              rotate: particle.rotateAnimParams,
             }}
             transition={{
-              duration: 4 + Math.random() * 4,
+              duration: particle.duration,
               repeat: Infinity,
               ease: "easeInOut",
             }}
             className={cn(
-              "w-6 h-6 md:w-8 md:h-8 rounded-sm shadow-xl border-t border-white/10",
-              ["bg-[#E3000B]", "bg-[#F6D100]", "bg-[#0085C7]"][
-                Math.floor(Math.random() * 3)
-              ],
+              "w-6 h-6 md:w-8 md:h-8 rounded-sm shadow-xl border-t border-white/10 will-change-transform",
+              particle.bgClass
             )}
             style={{ opacity: 0.6 }}
           >
@@ -173,7 +182,7 @@ export function OrganisingTeamSection() {
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{
-                duration: 3 + Math.random() * 2,
+                duration: char.animDuration,
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
@@ -229,21 +238,15 @@ export function OrganisingTeamSection() {
               <div className="inline-block px-4 py-1.5 mb-4 md:mb-6 rounded-full border border-lego-red bg-lego-red/10 text-white font-mono text-xs md:text-sm uppercase tracking-wider backdrop-blur-sm shadow-[4px_4px_0_rgba(227,0,11,1)] font-bold">
                 The Architects
               </div>
-              <h2 className="text-4xl sm:text-5xl md:text-7xl font-display font-black uppercase tracking-tighter mb-4 leading-none">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-display font-black uppercase tracking-wider mb-4 leading-[1.05] max-w-full overflow-hidden w-full whitespace-normal wrap-break-word">
                 <span
-                  className="text-white inline-block mb-1"
-                  style={{
-                    textShadow: "4px 4px 0px #000, 8px 8px 0px #E3000B",
-                  }}
+                  className="text-white inline-block mb-1 text-lego-heading shadow-layer-red max-w-full wrap-break-word"
                 >
                   Organising
                 </span>
                 <br className="md:hidden" />
                 <span
-                  className="text-lego-yellow inline-block mt-1 md:ml-4"
-                  style={{
-                    textShadow: "4px 4px 0px #000, 8px 8px 0px #0085C7",
-                  }}
+                  className="text-lego-yellow inline-block mt-1 md:ml-4 text-lego-heading shadow-layer-blue max-w-full wrap-break-word"
                 >
                   Team
                 </span>

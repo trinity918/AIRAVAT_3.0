@@ -5,6 +5,19 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
 
+// Pre-generated random values to prevent hydration mismatch and reduce re-renders
+const PARTICLES = Array.from({ length: 10 }).map((_, i) => ({
+  id: i,
+  left: `${10 + ((i * 17) % 80)}%`,
+  top: `${10 + ((i * 23) % 80)}%`,
+  delay: ((i * 13) % 5) * 0.1,
+  yRange: [(i * 31) % 100, -((i * 37) % 100)],
+  yAnimParams: [0, -((i * 41) % 30) - 10, 0],
+  rotateAnimParams: [0, (i * 47) % 360, 0],
+  duration: 3 + ((i * 53) % 4),
+  bgClass: ["bg-green-500", "bg-emerald-400", "bg-lime-500", "bg-lego-yellow", "bg-lego-red"][i % 5],
+}));
+
 export function NinjagoWorld() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -53,43 +66,33 @@ export function NinjagoWorld() {
         </motion.div>
 
         {/* Layer 3: Floating Lego Bricks */}
-        {Array.from({ length: 15 }).map((_, i) => (
+        {PARTICLES.map((particle) => (
           <motion.div
-            key={i}
+            key={particle.id}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: Math.random() * 0.5, duration: 1 }}
-            className="absolute z-0"
+            transition={{ delay: particle.delay, duration: 1 }}
+            className="absolute z-0 will-change-transform"
             style={{
-              left: `${10 + Math.random() * 80}%`,
-              top: `${10 + Math.random() * 80}%`,
-              y: useTransform(
-                scrollYProgress,
-                [0, 1],
-                [Math.random() * 100, Math.random() * -100],
-              ),
+              left: particle.left,
+              top: particle.top,
+              y: useTransform(scrollYProgress, [0, 1], particle.yRange),
             }}
           >
             <motion.div
               animate={{
-                y: [0, Math.random() * -30 - 10, 0],
-                rotate: [0, Math.random() * 360, 0],
+                y: particle.yAnimParams,
+                rotate: particle.rotateAnimParams,
               }}
               transition={{
-                duration: 3 + Math.random() * 4,
+                duration: particle.duration,
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
               className={cn(
-                "w-6 h-6 rounded-sm shadow-xl border-t border-white/20",
-                [
-                  "bg-green-500",
-                  "bg-emerald-400",
-                  "bg-lime-500",
-                  "bg-lego-yellow",
-                  "bg-lego-red",
-                ][Math.floor(Math.random() * 5)],
+                "w-6 h-6 rounded-sm shadow-xl border-t border-white/20 will-change-transform",
+                particle.bgClass
               )}
             >
               <div className="flex gap-1 justify-center mt-1">
@@ -114,16 +117,14 @@ export function NinjagoWorld() {
             Lego Ninjago
           </div>
 
-          <h2 className="text-4xl sm:text-5xl md:text-7xl font-display font-black uppercase tracking-tighter mb-4 md:mb-6 leading-none max-w-full whitespace-normal wrap-break-word">
+          <h2 className="text-4xl sm:text-5xl md:text-7xl font-display font-black uppercase tracking-wider mb-4 md:mb-6 leading-none max-w-full whitespace-normal wrap-break-word">
             <span
-              className="text-white block mb-1 max-w-full wrap-break-word"
-              style={{ textShadow: "4px 4px 0px #000, 8px 8px 0px #083E87" }}
+              className="text-white block mb-1 max-w-full wrap-break-word text-lego-heading shadow-layer-blue"
             >
               AI &
             </span>
             <span
-              className="text-neon-green block mt-1 max-w-full wrap-break-word"
-              style={{ textShadow: "4px 4px 0px #000, 8px 8px 0px #15803d" }}
+              className="text-white block mt-1 max-w-full wrap-break-word text-lego-heading shadow-layer-green"
             >
               FinTech
             </span>

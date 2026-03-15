@@ -38,7 +38,10 @@ const characters = [
     delay: 1.0,
     align: "bottom",
   },
-];
+].map((char, i) => ({
+  ...char,
+  animDuration: 3 + ((i * 17) % 2),
+}));
 
 const contacts = [
   {
@@ -137,7 +140,7 @@ export function ContactSection() {
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{
-                duration: 3 + Math.random() * 2,
+                duration: char.animDuration,
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
@@ -167,17 +170,15 @@ export function ContactSection() {
           <div className="inline-block px-4 py-1.5 mb-4 md:mb-6 rounded-full border border-neon-green bg-neon-green/10 text-neon-green font-mono text-xs md:text-sm uppercase tracking-wider backdrop-blur-sm box-neon">
             Get In Touch
           </div>
-          <h2 className="text-4xl sm:text-5xl md:text-7xl font-display font-black uppercase tracking-tighter mb-4 leading-none">
+          <h2 className="text-4xl sm:text-5xl md:text-7xl font-display font-black uppercase tracking-wider mb-4 leading-none">
             <span
-              className="text-lego-yellow inline-block mb-1"
-              style={{ textShadow: "4px 4px 0px #000, 8px 8px 0px #064e3b" }}
+              className="text-lego-yellow inline-block mb-1 text-lego-heading shadow-layer-green"
             >
               Contact
             </span>
             <br className="md:hidden" />
             <span
-              className="text-white inline-block mt-1 md:ml-4"
-              style={{ textShadow: "4px 4px 0px #000, 8px 8px 0px #10b981" }}
+              className="text-white inline-block mt-1 md:ml-4 text-lego-heading shadow-layer-blue"
             >
               Details
             </span>
@@ -243,17 +244,15 @@ export function ContactSection() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="text-center mb-8"
         >
-          <h3 className="text-3xl sm:text-4xl md:text-6xl font-display font-black uppercase tracking-tighter mb-6 leading-none">
+          <h3 className="text-3xl sm:text-4xl md:text-6xl font-display font-black uppercase tracking-wider mb-6 leading-none">
             <span
-              className="text-neon-blue inline-block mb-1"
-              style={{ textShadow: "3px 3px 0px #000, 6px 6px 0px #e11d48" }}
+              className="text-white inline-block mb-1 text-lego-heading shadow-layer-red"
             >
               Honorable
             </span>
             <br className="sm:hidden" />
             <span
-              className="text-neon-pink inline-block mt-1 sm:ml-4"
-              style={{ textShadow: "3px 3px 0px #000, 6px 6px 0px #2563eb" }}
+              className="text-white inline-block mt-1 sm:ml-4 text-lego-heading shadow-layer-blue"
             >
               Mentions
             </span>

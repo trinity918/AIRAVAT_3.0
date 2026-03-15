@@ -4,6 +4,20 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
 
+const STARS = Array.from({ length: 20 }).map((_, i) => {
+  const prob = (i * 17) % 100;
+  const size = prob > 85 ? 3 : prob > 60 ? 2 : 1;
+  return {
+    id: i,
+    left: `${(i * 31) % 100}%`,
+    top: `${(i * 37) % 100}%`,
+    width: size,
+    height: size,
+    duration: 2 + ((i * 41) % 4),
+    delay: ((i * 43) % 3),
+  };
+});
+
 export function SustainabilityWorld() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -27,32 +41,29 @@ export function SustainabilityWorld() {
         style={{ background: "#000000", y: bgY }}
       />
 
-      {/* Layer 2: Randomly placed LEGO star dots */}
-      {Array.from({ length: 120 }).map((_, i) => {
-        const size = Math.random() > 0.85 ? 3 : Math.random() > 0.6 ? 2 : 1;
-        return (
-          <motion.div
-            key={i}
-            className="absolute rounded-full bg-white z-1"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              width: size,
-              height: size,
-            }}
-            animate={{
-              opacity: [0.3, 1, 0.3],
-              scale: [1, 1.4, 1],
-            }}
-            transition={{
-              duration: 2 + Math.random() * 4,
-              repeat: Infinity,
-              delay: Math.random() * 3,
-              ease: "easeInOut",
-            }}
-          />
-        );
-      })}
+      {/* Layer 2: Pre-generated LEGO star dots */}
+      {STARS.map((star) => (
+        <motion.div
+          key={star.id}
+          className="absolute rounded-full bg-white z-1 will-change-transform"
+          style={{
+            left: star.left,
+            top: star.top,
+            width: star.width,
+            height: star.height,
+          }}
+          animate={{
+            opacity: [0.3, 1, 0.3],
+            scale: [1, 1.4, 1],
+          }}
+          transition={{
+            duration: star.duration,
+            repeat: Infinity,
+            delay: star.delay,
+            ease: "easeInOut",
+          }}
+        />
+      ))}
 
       {/* Cyan lightsaber glow streak */}
       <motion.div
@@ -104,16 +115,14 @@ export function SustainabilityWorld() {
             Lego Star Wars
           </div>
 
-          <h2 className="text-4xl sm:text-5xl md:text-7xl font-display font-black uppercase tracking-tighter mb-4 md:mb-6 leading-none max-w-full whitespace-normal wrap-break-word">
+          <h2 className="text-4xl sm:text-5xl md:text-7xl font-display font-black uppercase tracking-wider mb-4 md:mb-6 leading-none max-w-full whitespace-normal wrap-break-word">
             <span
-              className="text-white block mb-1 max-w-full wrap-break-word"
-              style={{ textShadow: "4px 4px 0px #000, 8px 8px 0px #2563eb" }}
+              className="text-white block mb-1 max-w-full wrap-break-word text-lego-heading shadow-layer-blue"
             >
               AI in
             </span>
             <span
-              className="text-neon-blue block mt-1 max-w-full wrap-break-word"
-              style={{ textShadow: "4px 4px 0px #000, 8px 8px 0px #1d4ed8" }}
+              className="text-white block mt-1 max-w-full wrap-break-word text-lego-heading shadow-layer-green"
             >
               Sustainability
             </span>
