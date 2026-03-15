@@ -222,8 +222,6 @@ export function OrganisingTeamSection() {
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
-                priority
-                loading="eager"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-[#E3000B]/20 to-transparent pointer-events-none mix-blend-overlay" />
             </motion.div>
