@@ -18,7 +18,7 @@ export function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-full flex flex-col items-center justify-center text-center px-4 overflow-hidden md:pt-28">
+      <div className="relative z-10 w-full max-w-full flex flex-col items-center justify-center text-center px-4 overflow-hidden">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -30,15 +30,11 @@ export function HeroSection() {
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-8xl font-display font-black uppercase tracking-wider mb-4 leading-none">
-            <span
-              className="text-lego-yellow inline-block mb-1 text-lego-heading shadow-layer-red"
-            >
+            <span className="text-lego-yellow inline-block mb-1 text-lego-heading shadow-layer-red">
               AIRAVAT
             </span>
             <br />
-            <span
-              className="text-white inline-block mt-1 text-lego-heading shadow-layer-blue"
-            >
+            <span className="text-white inline-block mt-1 text-lego-heading shadow-layer-blue">
               3.0
             </span>
             <br />

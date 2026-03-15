@@ -14,8 +14,8 @@ const audiowide = Audiowide({
 });
 
 export const metadata: Metadata = {
-  title: "Lego Universe Hackathon",
-  description: "A single-page hackathon website referencing the Lego universe",
+  title: "Airavat 3.0",
+  description: "AIRAVAT 3.0 - 24 hour AI Hackathon by IEEE CS SPIT",
 };
 
 export const viewport = {
