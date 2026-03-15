@@ -9,7 +9,7 @@ const characters = [
   {
     name: "bruce_wayne",
     src: "/lego_chars/bruce_wayne.png",
-    pos: "top-[5%] left-[-2%] md:left-[5%]",
+    pos: "top-[5%] left-[2%] md:left-[5%]",
     rotate: 15,
     delay: 0.1,
     align: "top-left",
@@ -17,7 +17,7 @@ const characters = [
   {
     name: "luke_skywalker",
     src: "/lego_chars/luke_skywalker.png",
-    pos: "top-[5%] right-[-2%] md:right-[5%]",
+    pos: "top-[5%] right-[2%] md:right-[5%]",
     rotate: -15,
     delay: 0.2,
     align: "top-right",
@@ -25,7 +25,7 @@ const characters = [
   {
     name: "chewbacca",
     src: "/lego_chars/chewbacca.png",
-    pos: "top-[20%] left-[-5%] md:left-[-2%]",
+    pos: "top-[20%] left-[1%] md:left-[-2%]",
     rotate: 25,
     delay: 0.3,
     align: "left",
@@ -33,7 +33,7 @@ const characters = [
   {
     name: "yoda",
     src: "/lego_chars/yoda.png",
-    pos: "top-[40%] right-[-5%] md:right-[-2%]",
+    pos: "top-[40%] right-[1%] md:right-[-2%]",
     rotate: -25,
     delay: 0.4,
     align: "right",
@@ -41,7 +41,7 @@ const characters = [
   {
     name: "boba_fett",
     src: "/lego_chars/boba_fett.png",
-    pos: "top-[60%] left-[-5%] md:left-[2%]",
+    pos: "top-[60%] left-[1%] md:left-[2%]",
     rotate: 20,
     delay: 0.5,
     align: "left",
@@ -49,7 +49,7 @@ const characters = [
   {
     name: "harry_potter",
     src: "/lego_chars/harry_potter.png",
-    pos: "top-[75%] right-[-5%] md:right-[2%]",
+    pos: "top-[75%] right-[1%] md:right-[2%]",
     rotate: -20,
     delay: 0.6,
     align: "right",
@@ -57,7 +57,7 @@ const characters = [
   {
     name: "ron_weasley",
     src: "/lego_chars/ron_weasley.png",
-    pos: "bottom-[-5%] left-[10%]",
+    pos: "bottom-[2%] left-[10%] md:bottom-[-5%]",
     rotate: 10,
     delay: 0.7,
     align: "bottom-left",
@@ -65,7 +65,7 @@ const characters = [
   {
     name: "darth_vader",
     src: "/lego_chars/darth_vader.png",
-    pos: "bottom-[-5%] right-[10%]",
+    pos: "bottom-[2%] right-[10%] md:bottom-[-5%]",
     rotate: -10,
     delay: 0.8,
     align: "bottom-right",
@@ -73,7 +73,7 @@ const characters = [
   {
     name: "c3po",
     src: "/lego_chars/c3po.png",
-    pos: "bottom-[-10%] left-[30%]",
+    pos: "bottom-[2%] left-[30%] md:bottom-[-10%]",
     rotate: 5,
     delay: 0.9,
     align: "bottom",
@@ -81,7 +81,7 @@ const characters = [
   {
     name: "r2d2",
     src: "/lego_chars/r2d2.png",
-    pos: "bottom-[-10%] right-[30%]",
+    pos: "bottom-[2%] right-[30%] md:bottom-[-10%]",
     rotate: -5,
     delay: 1.0,
     align: "bottom",
