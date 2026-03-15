@@ -18,7 +18,7 @@ export function OrganisingTeamSection() {
     {
       name: "obi_wan",
       src: "/lego_chars/obi_wan.png",
-      pos: "top-[5%] left-[2%] md:left-[2%]",
+      pos: "top-[5%] left-[5%] md:top-[5%] md:left-[0%]",
       rotate: 15,
       delay: 0.1,
       align: "top-left",
@@ -26,7 +26,7 @@ export function OrganisingTeamSection() {
     {
       name: "darth_vader",
       src: "/lego_chars/darth_vader.png",
-      pos: "top-[5%] right-[2%] md:right-[2%]",
+      pos: "top-[5%] right-[5%] md:top-[5%] md:right-[0%]",
       rotate: -15,
       delay: 0.2,
       align: "top-right",
@@ -34,7 +34,7 @@ export function OrganisingTeamSection() {
     {
       name: "han_solo",
       src: "/lego_chars/han_solo.png",
-      pos: "top-[40%] left-[1%] md:left-[-2%]",
+      pos: "top-[45%] left-[5%] md:left-[0%]",
       rotate: 25,
       delay: 0.3,
       align: "left",
@@ -42,7 +42,7 @@ export function OrganisingTeamSection() {
     {
       name: "bruce_wayne",
       src: "/lego_chars/bruce_wayne.png",
-      pos: "top-[40%] right-[1%] md:right-[-2%]",
+      pos: "top-[45%] right-[5%] md:right-[0%]",
       rotate: -25,
       delay: 0.4,
       align: "right",
@@ -50,7 +50,7 @@ export function OrganisingTeamSection() {
     {
       name: "scout_trooper",
       src: "/lego_chars/scout_trooper.png",
-      pos: "bottom-[2%] left-[5%] md:bottom-[-5%]",
+      pos: "bottom-[5%] left-[5%] md:bottom-[0%]",
       rotate: 10,
       delay: 0.5,
       align: "bottom-left",
@@ -58,7 +58,7 @@ export function OrganisingTeamSection() {
     {
       name: "r5d4",
       src: "/lego_chars/r5d4.png",
-      pos: "bottom-[2%] right-[5%] md:bottom-[-5%]",
+      pos: "bottom-[5%] right-[5%] md:bottom-[0%]",
       rotate: -10,
       delay: 0.6,
       align: "bottom-right",
