@@ -66,25 +66,163 @@ export function HeroSection() {
             type: "spring",
             stiffness: 200,
           }}
-          className="flex flex-wrap gap-4 justify-center relative z-20 md:-mt-2"
+          className="flex flex-wrap gap-6 justify-center relative z-20 md:-mt-2"
         >
+          {/* ── Register Now – RED LEGO BRICK ── */}
           <a
             href="https://unstop.com/hackathons/airavat-30-24-hour-national-ai-hackathon-sardar-patel-institute-of-technology-spit-mumbai-1658777"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-8 py-4 bg-lego-red text-white font-display uppercase tracking-widest text-lg md:text-xl rounded-md hover:bg-red-600 transition-colors shadow-[0_4px_0_#990000,0_4px_20px_rgba(227,0,11,0.5)] active:translate-y-1 active:shadow-[0_0_0_#990000,0_0_10px_rgba(227,0,11,0.5)] flex items-center gap-2"
+            style={{
+              display: "inline-flex",
+              flexDirection: "column",
+              alignItems: "center",
+              textDecoration: "none",
+              userSelect: "none",
+            }}
           >
-            <div className="w-4 h-4 rounded-full border border-white/30 inner-shadow-sm flex items-center justify-center bg-lego-red/80">
-              <div className="w-1.5 h-1.5 rounded-full bg-white/50" />
+            {/* Studs row */}
+            <div
+              style={{
+                display: "flex",
+                gap: "10px",
+                marginBottom: "-2px",
+                paddingLeft: "4px",
+                paddingRight: "4px",
+              }}
+            >
+              {[0, 1, 2, 3, 4].map((i) => (
+                <div
+                  key={i}
+                  style={{
+                    width: "20px",
+                    height: "12px",
+                    borderRadius: "50%",
+                    background:
+                      "radial-gradient(circle at 35% 35%, #ff6666, #cc0000)",
+                    boxShadow: "0 2px 0 #880000, inset 0 1px 2px rgba(255,255,255,0.35)",
+                    border: "1px solid #aa0000",
+                  }}
+                />
+              ))}
             </div>
-            Register Now
+            {/* Brick body */}
+            <div
+              className="group"
+              style={{
+                background: "linear-gradient(180deg, #e3000b 0%, #c50009 100%)",
+                boxShadow: "0 6px 0 #880000, 0 6px 24px rgba(227,0,11,0.55)",
+                borderRadius: "4px",
+                padding: "14px 32px",
+                cursor: "pointer",
+                transition: "transform 0.08s ease, box-shadow 0.08s ease",
+                borderTop: "2px solid rgba(255,120,120,0.35)",
+              }}
+              onMouseDown={(e) => {
+                (e.currentTarget as HTMLDivElement).style.transform = "translateY(4px)";
+                (e.currentTarget as HTMLDivElement).style.boxShadow = "0 2px 0 #880000, 0 2px 8px rgba(227,0,11,0.4)";
+              }}
+              onMouseUp={(e) => {
+                (e.currentTarget as HTMLDivElement).style.transform = "";
+                (e.currentTarget as HTMLDivElement).style.boxShadow = "0 6px 0 #880000, 0 6px 24px rgba(227,0,11,0.55)";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLDivElement).style.transform = "";
+                (e.currentTarget as HTMLDivElement).style.boxShadow = "0 6px 0 #880000, 0 6px 24px rgba(227,0,11,0.55)";
+              }}
+            >
+              <span
+                style={{
+                  color: "#fff",
+                  fontFamily: "inherit",
+                  fontWeight: 900,
+                  fontSize: "clamp(1rem, 2vw, 1.25rem)",
+                  letterSpacing: "0.2em",
+                  textTransform: "uppercase",
+                  textShadow: "0 1px 4px rgba(0,0,0,0.4)",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                Register Now
+              </span>
+            </div>
           </a>
 
+          {/* ── Explore – YELLOW LEGO BRICK ── */}
           <a
             href="#about"
-            className="px-8 py-4 bg-transparent border-2 border-slate-700 text-white font-display uppercase tracking-widest text-lg md:text-xl rounded-md hover:border-slate-500 hover:bg-white/5 transition-all flex items-center gap-2"
+            style={{
+              display: "inline-flex",
+              flexDirection: "column",
+              alignItems: "center",
+              textDecoration: "none",
+              userSelect: "none",
+            }}
           >
-            Explore
+            {/* Studs row */}
+            <div
+              style={{
+                display: "flex",
+                gap: "10px",
+                marginBottom: "-2px",
+                paddingLeft: "4px",
+                paddingRight: "4px",
+              }}
+            >
+              {[0, 1, 2, 3].map((i) => (
+                <div
+                  key={i}
+                  style={{
+                    width: "20px",
+                    height: "12px",
+                    borderRadius: "50%",
+                    background:
+                      "radial-gradient(circle at 35% 35%, #ffe066, #e6a800)",
+                    boxShadow: "0 2px 0 #a67700, inset 0 1px 2px rgba(255,255,255,0.4)",
+                    border: "1px solid #cc9900",
+                  }}
+                />
+              ))}
+            </div>
+            {/* Brick body */}
+            <div
+              style={{
+                background: "linear-gradient(180deg, #FFD700 0%, #e6c200 100%)",
+                boxShadow: "0 6px 0 #a67700, 0 6px 24px rgba(230,194,0,0.4)",
+                borderRadius: "4px",
+                padding: "14px 32px",
+                cursor: "pointer",
+                transition: "transform 0.08s ease, box-shadow 0.08s ease",
+                borderTop: "2px solid rgba(255,255,200,0.4)",
+              }}
+              onMouseDown={(e) => {
+                (e.currentTarget as HTMLDivElement).style.transform = "translateY(4px)";
+                (e.currentTarget as HTMLDivElement).style.boxShadow = "0 2px 0 #a67700, 0 2px 8px rgba(230,194,0,0.3)";
+              }}
+              onMouseUp={(e) => {
+                (e.currentTarget as HTMLDivElement).style.transform = "";
+                (e.currentTarget as HTMLDivElement).style.boxShadow = "0 6px 0 #a67700, 0 6px 24px rgba(230,194,0,0.4)";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLDivElement).style.transform = "";
+                (e.currentTarget as HTMLDivElement).style.boxShadow = "0 6px 0 #a67700, 0 6px 24px rgba(230,194,0,0.4)";
+              }}
+            >
+              <span
+                style={{
+                  color: "#1a1a1a",
+                  fontFamily: "inherit",
+                  fontWeight: 900,
+                  fontSize: "clamp(1rem, 2vw, 1.25rem)",
+                  letterSpacing: "0.2em",
+                  textTransform: "uppercase",
+                  textShadow: "0 1px 2px rgba(255,255,255,0.3)",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                Explore
+              </span>
+            </div>
           </a>
         </motion.div>
       </div>
