@@ -60,6 +60,7 @@ export function NinjagoWorld() {
             src="/fintech-transparent.png"
             alt="AI & FinTech Ninjago Scene"
             fill
+            sizes="(max-width: 768px) 100vw, 50vw"
             className="object-contain"
             priority
           />

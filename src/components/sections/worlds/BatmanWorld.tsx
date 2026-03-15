@@ -60,6 +60,7 @@ export function BatmanWorld() {
             src="/healthcare-transparent.png"
             alt="AI in Healthcare Batman Scene"
             fill
+            sizes="(max-width: 768px) 100vw, 50vw"
             className="object-contain"
             priority
           />

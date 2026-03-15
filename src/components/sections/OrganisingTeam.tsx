@@ -112,7 +112,7 @@ export function OrganisingTeamSection() {
           boxShadow: "inset 0 0 100px rgba(0,0,0,0.6)",
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80 pointer-events-none" />
+        <div className="absolute inset-0 bg-linear-to-b from-black/60 via-transparent to-black/80 pointer-events-none" />
       </motion.div>
 
       {/* Floating Particles */}

@@ -96,6 +96,7 @@ export function SustainabilityWorld() {
             src="/sus-final-transparent.png"
             alt="AI in Sustainability Star Wars Scene"
             fill
+            sizes="(max-width: 768px) 100vw, 50vw"
             className="object-contain object-left"
             priority
           />

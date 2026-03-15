@@ -60,6 +60,7 @@ export function SocialCauseWorld() {
             src="/kyabolti-transparent.png"
             alt="AI for Social Cause Scene"
             fill
+            sizes="(max-width: 768px) 100vw, 50vw"
             className="object-contain"
             priority
           />
