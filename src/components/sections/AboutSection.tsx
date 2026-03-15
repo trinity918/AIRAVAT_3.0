@@ -79,14 +79,6 @@ const characters = [
     align: "bottom",
   },
   {
-    name: "c3po",
-    src: "/lego_chars/c3po.png",
-    pos: "bottom-[-10%] left-[30%]",
-    rotate: 5,
-    delay: 0.9,
-    align: "bottom",
-  },
-  {
     name: "r2d2",
     src: "/lego_chars/r2d2.png",
     pos: "bottom-[-10%] right-[30%]",
