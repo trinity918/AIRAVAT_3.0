@@ -239,7 +239,7 @@ export function OrganisingTeamSection() {
                 The Architects
               </div>
               <h2 className="text-4xl sm:text-5xl md:text-6xl font-display font-black uppercase tracking-wider mb-4 leading-[1.05] max-w-full overflow-hidden w-full whitespace-normal wrap-break-word">
-                <span className="text-white inline-block mb-1 text-lego-heading shadow-layer-red max-w-full wrap-break-word">
+                <span className="text-white inline-block mb-1 text-lego-heading shadow-layer-red max-w-full wrap-break-word md:whitespace-nowrap">
                   Organising
                 </span>
                 <br className="md:hidden" />

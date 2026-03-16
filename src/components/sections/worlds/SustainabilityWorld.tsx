@@ -120,7 +120,7 @@ export function SustainabilityWorld() {
             <span className="text-white block mb-1 max-w-full wrap-break-word text-lego-heading shadow-layer-blue">
               AI in
             </span>
-            <span className="text-white block mt-1 max-w-full wrap-break-word text-lego-heading shadow-layer-green">
+            <span className="text-white block mt-1 max-w-full wrap-break-word text-lego-heading shadow-layer-green md:whitespace-nowrap">
               Sustainability
             </span>
           </h2>
