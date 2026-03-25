@@ -76,6 +76,14 @@ const BRICKS = Array.from({ length: 60 }).map((_, i) => {
   };
 });
 
+// A few extra bricks placed near the hero centre so they're visible mid-screen
+const CENTER_BRICKS = [
+  { id: "c0", position: [-3,  1.5, -1], rotation: [0.3, 0.8, 0.1], color: "#E3000B", scale: 0.7, floatingRange: [-0.15, 0.15] },
+  { id: "c1", position: [ 3.5, -1,  1.5], rotation: [0.1, 1.2, 0.4], color: "#F6D100", scale: 0.65, floatingRange: [-0.12, 0.12] },
+  { id: "c2", position: [-2,  -2,  2], rotation: [0.6, 0.3, 0.9], color: "#0085C7", scale: 0.6, floatingRange: [-0.1, 0.1] },
+  { id: "c3", position: [ 2,   2, -2], rotation: [1.0, 0.5, 0.2], color: "#ff00ea", scale: 0.55, floatingRange: [-0.18, 0.18] },
+];
+
 export function FloatingBricks() {
 
   return (
@@ -86,6 +94,11 @@ export function FloatingBricks() {
       <pointLight position={[10, -10, 5]} intensity={0.5} color="#00f3ff" />
 
       {BRICKS.map((brick) => (
+        <LegoBrick key={brick.id} {...brick} />
+      ))}
+
+      {/* Extra centre bricks */}
+      {CENTER_BRICKS.map((brick) => (
         <LegoBrick key={brick.id} {...brick} />
       ))}
     </>

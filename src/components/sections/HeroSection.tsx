@@ -2,6 +2,7 @@
 
 import { Canvas } from "@react-three/fiber";
 import { motion } from "framer-motion";
+import { track } from "@vercel/analytics/react";
 import { FloatingBricks } from "./Hero3D";
 
 export function HeroSection() {
@@ -73,6 +74,7 @@ export function HeroSection() {
             href="https://unstop.com/hackathons/airavat-30-24-hour-national-ai-hackathon-sardar-patel-institute-of-technology-spit-mumbai-1658777"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => track("Register_Clicked")}
             style={{
               display: "inline-flex",
               flexDirection: "column",

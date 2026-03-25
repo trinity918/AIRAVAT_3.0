@@ -24,6 +24,8 @@ export const viewport = {
   maximumScale: 1,
 };
 
+import { Analytics } from "@vercel/analytics/react";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -33,6 +35,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.variable} ${audiowide.variable} antialiased`}>
         {children}
+        <Analytics />
       </body>
     </html>
   );
