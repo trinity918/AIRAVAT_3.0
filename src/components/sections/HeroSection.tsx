@@ -4,6 +4,7 @@ import { Canvas } from "@react-three/fiber";
 import { motion } from "framer-motion";
 import { track } from "@vercel/analytics/react";
 import { FloatingBricks } from "./Hero3D";
+import { SponsorBranding } from "../ui/SponsorBranding";
 
 export function HeroSection() {
   return (
@@ -46,6 +47,9 @@ export function HeroSection() {
               Prize Pool: ₹1,00,000
             </span>
           </h1>
+          <div className="mt-8">
+            <SponsorBranding placement="hero" />
+          </div>
         </motion.div>
 
         <motion.p
